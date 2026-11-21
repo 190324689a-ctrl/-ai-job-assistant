@@ -1,0 +1,25 @@
+# 依赖与构建产物
+node_modules/
+frontend/dist/
+backend/.venv/
+__pycache__/
+*.pyc
+
+# 本地数据与密钥（绝不提交）
+.env
+backend/.env
+data/*.db
+data/faiss.index
+data/faiss_meta.json
+
+# 日志与系统文件
+*.log
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# backend 运行时产生的本地数据（任何位置的 data/）
+**/data/*.db
+**/data/faiss.index
+**/data/faiss_meta.json

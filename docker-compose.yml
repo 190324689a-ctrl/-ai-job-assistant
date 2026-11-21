@@ -1,0 +1,28 @@
+# AI 求职助手 · 一键启动（后端 + 前端）
+# 用法：docker compose up --build
+# 前端：http://localhost:4173 ；后端：http://localhost:8000 ；接口文档：http://localhost:8000/docs
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      # 不填 LLM_API_KEY 时自动走 Mock 模式；填了则走真实模型。
+      LLM_API_KEY: ${LLM_API_KEY:-}
+      LLM_BASE_URL: ${LLM_BASE_URL:-https://api.deepseek.com/v1}
+      LLM_MODEL: ${LLM_MODEL:-deepseek-chat}
+    volumes:
+      - ./data:/app/data
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "4173:4173"
+    environment:
+      BACKEND_URL: http://backend:8000
+    depends_on:
+      - backend

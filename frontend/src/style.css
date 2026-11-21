@@ -1,0 +1,10 @@
+body { margin: 0; font-family: system-ui, 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #f5f7fa; color: #303133; }
+.page { max-width: 960px; margin: 0 auto; }
+.page h2 { margin: 4px 0 8px; }
+.page .desc { color: #909399; margin: 0 0 16px; }
+.card { margin-bottom: 16px; }
+.row { display: flex; gap: 12px; flex-wrap: wrap; }
+.row > * { flex: 1 1 200px; }
+pre.answer { white-space: pre-wrap; word-break: break-word; margin: 0; line-height: 1.7; }
+.score { font-size: 36px; font-weight: 700; color: #409eff; }
+.muted { color: #909399; font-size: 13px; }
